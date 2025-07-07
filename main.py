@@ -5,8 +5,10 @@ import json
 import threading
 import time
 from datetime import datetime
+bot.remove_webhook()  # এটা ওয়েবহুক ডিলিট করবে
+bot.infinity_polling()  # এটা বটকে পোলিংবে
 
-# ✅ TOKEN ENV or direct paste
+#pollN ENV or direct paste
 BOT_TOKEN = os.getenv("BOT_TOKEN") or "7962322784:AAGG4n8SH2OdhSLxTfCk31Xk-SX1MvHWyZo"
 bot = telebot.TeleBot(BOT_TOKEN)
 
@@ -105,5 +107,7 @@ def signal_off(message):
     is_signal_on = False
     bot.reply_to(message, "✅ SIGNAL OFF COMPLETED")
 
-# 🚀 Start polling
-bot.infinity_polling()
+
+if __name__ == "__main__":
+    bot.remove_webhook()
+    bot.infinity_polling()
